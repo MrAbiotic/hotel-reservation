@@ -1,13 +1,18 @@
 # Pseudokode om oppbygning
 
 ## Klasse 1, hotell
-### Inputs og presatte verdier:
-- [ ] Antall tilgjengelige rom (pre)
+### Init():
+- [ ] Antall tilgjengelige rom og deres type (pre)
 - [ ] Gjestekapasitet (pre)
+- [ ] Reserverte rom med kundeobjekt (pre)
 
 ### Metoder:
 #### Reservasjon:
-- [ ] 
+- Argumenter (kundeobjekt, rom, personer, netter)
+
+### Klasse 3, rom (klasse 1 -> sub)
+- [ ] Romtype
+- [ ] Prisklasse
 
 ---
 
@@ -20,6 +25,3 @@
 
 ### Metoder:
 
-### Klasse 3, rom
-- [ ] Romtype
-- [ ] Prisklasse
