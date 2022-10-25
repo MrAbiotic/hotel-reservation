@@ -19,3 +19,7 @@
 - [ ] Rabattkode (10% eller 20%)
 
 ### Metoder:
+
+### Klasse, rom
+- [ ] Romtype
+- [ ] Prisklasse
