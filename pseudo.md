@@ -18,10 +18,8 @@
 
 ## Klasse 2, kunde
 ### Inputs:
-- [ ] Navn
-- [ ] Postnummer
-- [ ] Email
+- [ ] Personalia [^1]
 - [ ] Rabattkode (10% eller 20%)
 
 ### Metoder:
-
+[^1]: Fullt navn, e-post, tlf, postnummer
