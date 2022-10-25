@@ -1,13 +1,13 @@
 # Pseudokode om oppbygning
 
 ## Klasse 1, hotell
-### Inputs:
-- [ ] Antall tilgjengelige rom
-- [ ] Gjestekapasitet
+### Inputs og presatte verdier:
+- [ ] Antall tilgjengelige rom (pre)
+- [ ] Gjestekapasitet (pre)
 
 ### Metoder:
-- [ ] Reservasjon:
-
+#### Reservasjon:
+- [ ] 
 
 ---
 
