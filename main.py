@@ -1,5 +1,5 @@
 class Hotell:
-    def __init__(self, places: int=10) -> None:
+    def __init__(self, places: int=10, luksusrom: int=2) -> None:
         self.places = places
 
 class Customer:
