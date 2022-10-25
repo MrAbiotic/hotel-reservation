@@ -20,6 +20,6 @@
 
 ### Metoder:
 
-### Klasse, rom
+### Klasse 3, rom
 - [ ] Romtype
 - [ ] Prisklasse
