@@ -38,3 +38,4 @@
 
 ## Markdown ressurser
 Guide: https://www.markdownguide.org/cheat-sheet/
+Sandbox: https://stackedit.io/app#
