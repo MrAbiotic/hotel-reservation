@@ -11,8 +11,10 @@
 - Kundeobjekt
 
 ### Klasse 3, rom (klasse 1 -> sub)
-- [ ] Romtype
-- [ ] Prisklasse
+| Rom |
+| --- |
+| Romtype |
+| Prisklasse |
 
 ---
 
