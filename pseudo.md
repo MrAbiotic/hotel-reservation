@@ -25,4 +25,6 @@
 - [ ] Antall netter
 
 ### Metoder
+
+## Fotnotater
 [^1]: Fullt navn, e-post, tlf, postnummer
