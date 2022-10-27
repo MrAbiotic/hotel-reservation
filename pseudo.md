@@ -11,16 +11,16 @@
 - Kundeobjekt
 
 ### Klasse 3, rom (klasse 1 -> sub)
-| Rom |
-| --- |
+| **Rom** |
+| :-: |
 | Romtype |
 | Prisklasse |
-
+| Kalender[^1] |
 ---
 
 ## Klasse 2, kundeobjekt
 ### Inputs
-- [ ] Personalia [^1]
+- [ ] Personalia [^2]
 - [ ] Rabattkode (10% eller 20%)
 - [ ] Antall rom
 - [ ] Antall personer
@@ -29,4 +29,10 @@
 ### Metoder
 
 ## Fotnotater
-[^1]: Fullt navn, e-post, tlf, postnummer
+[^1]: Forslag fra Harald sin side
+[^2]: Fullt navn, e-post, tlf, postnummer
+
+---
+
+## Markdown ressurser
+[Guide]https://www.markdownguide.org/cheat-sheet/
