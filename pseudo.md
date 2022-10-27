@@ -1,27 +1,41 @@
 # Pseudokode om oppbygning
 
 ## Klasse 1, hotell
-### Init():
+### Init
 - [ ] Antall tilgjengelige rom og deres type (pre)
 - [ ] Gjestekapasitet (pre)
 - [ ] Reserverte rom med kundeobjekt (pre)
 
-### Metoder:
-#### Reservasjon:
-- Argumenter (kundeobjekt, rom, personer, netter)
+### Metoder
+#### Reservasjon
+- Kundeobjekt
 
 ### Klasse 3, rom (klasse 1 -> sub)
-- [ ] Romtype
-- [ ] Prisklasse
+| **Rom** |
+| :-: |
+| Romtype |
+| Prisklasse |
+| Kalender[^1] |
+
+[^1]: Forslag fra Harald sin side
 
 ---
 
-## Klasse 2, kunde
-### Inputs:
-- [ ] Navn
-- [ ] Postnummer
-- [ ] Email
+## Klasse 2, kundeobjekt
+### Inputs
+- [ ] Personalia [^2]
 - [ ] Rabattkode (10% eller 20%)
+- [ ] Antall rom
+- [ ] Antall personer
+- [ ] Antall netter
 
-### Metoder:
+[^2]: Fullt navn, e-post, tlf, postnummer
 
+### Metoder
+- Tomt enn så lenge
+
+---
+
+## Markdown ressurser
+Guide: https://www.markdownguide.org/cheat-sheet/
+Sandbox: https://stackedit.io/app#
