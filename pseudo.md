@@ -16,6 +16,9 @@
 | Romtype |
 | Prisklasse |
 | Kalender[^1] |
+
+[^1]: Forslag fra Harald sin side
+
 ---
 
 ## Klasse 2, kundeobjekt
@@ -26,13 +29,12 @@
 - [ ] Antall personer
 - [ ] Antall netter
 
-### Metoder
-
-## Fotnotater
-[^1]: Forslag fra Harald sin side
 [^2]: Fullt navn, e-post, tlf, postnummer
+
+### Metoder
+- Tomt enn så lenge
 
 ---
 
 ## Markdown ressurser
-[Guide]https://www.markdownguide.org/cheat-sheet/
+Guide: https://www.markdownguide.org/cheat-sheet/
