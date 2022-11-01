@@ -12,7 +12,7 @@ class Customer:
     def __init__(self, full_name: str, guest_count: int, duration: int, d_code: int) -> None:
         self.name = full_name 
         self.guest_count = guest_count
-        self.room_count = None
+        self.room_count = self.assign_room()
         self.duration = duration
         self.discount = d_code
         
