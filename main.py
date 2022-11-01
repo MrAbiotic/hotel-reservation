@@ -3,10 +3,15 @@ import room_plan
 class Hotell:
     def __init__(self, places: int=10, luksusrom: int=2) -> None:
         self.places = places
-        self.room = [[x, y] for room in room_plan.etg.items() for x, y in room]
+        self.plan = [[[etg, x, y] for x, y in room_plan.etg[etg].items()] for etg in room_plan.etg]
 
-    def check_availible_room(self):
-        pass
+    def availible_room(self):
+        available_rooms = []
+        for etg in self.plan:
+            for room in etg:
+                if room[2][0] == 0:
+                    available_rooms.append(room)
+        return available_rooms
 
 class Price:
     def __init__(self) -> None:
