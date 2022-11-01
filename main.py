@@ -26,11 +26,11 @@ class Customer(Price):
         super().__init__()
         self.name = full_name 
         self.guest_count = guest_count
-        self.room_count = self.assign_room()
+        self.room_count = self.room_required()
         self.duration = duration
         self.discount_code = self.discount(d_code)
 
-    def assign_room(self):
+    def room_required(self):
         room_of_4 = self.guest_count // 4
         self.guest_count %= 4 # Fjerner antallet fra 4-rom
         room_of_2 = self.guest_count // 2
