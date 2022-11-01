@@ -14,6 +14,7 @@ class Customer:
         self.guest_count = guest_count
         self.room_count = None
         self.duration = duration
+        self.discount = d_code
         
     def assign_room(self):
         guest_count = self.guest_count
