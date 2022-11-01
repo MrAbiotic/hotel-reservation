@@ -52,7 +52,3 @@ class Customer(Price):
         total_price += self.room_count[1]*self.room_2_per_night
         total_price += self.room_count[2]*self.room_1_per_night
         total_price *= self.discount_code
-
-
-hotell = Customer("HTHV", 9, 5, 8, 0)
-print(hotell.assign_room())
