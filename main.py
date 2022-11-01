@@ -1,7 +1,15 @@
 import room_plan
 
-class Hotell:
+
+class Price:
+    def __init__(self) -> None:
+        self.room_4_per_night = 225
+        self.room_2_per_night = 250
+        self.room_1_per_night = 300
+
+class Hotell(Price):
     def __init__(self, places: int=10, luksusrom: int=2) -> None:
+        super().__init__()
         self.places = places
         self.plan = [[[etg, x, y] for x, y in room_plan.etg[etg].items()] for etg in room_plan.etg]
 
@@ -12,12 +20,6 @@ class Hotell:
                 if room[2][0] == 0:
                     available_rooms.append(room)
         return available_rooms
-
-class Price:
-    def __init__(self) -> None:
-        self.room_4_per_night = 225
-        self.room_2_per_night = 250
-        self.room_1_per_night = 300
 
 class Customer(Price):
     def __init__(self, full_name: str, guest_count: int, duration: int, d_code: int) -> None:
