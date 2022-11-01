@@ -3,6 +3,7 @@ import room_plan
 class Hotell:
     def __init__(self, places: int=10, luksusrom: int=2) -> None:
         self.places = places
+        self.room = [[x, y] for room in room_plan.etg.items() for x, y in room]
 
     def check_availible_room(self):
         pass
