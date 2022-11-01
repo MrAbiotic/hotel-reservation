@@ -8,9 +8,8 @@ class Price:
         self.room_1_per_night = 300
 
 class Hotell(Price):
-    def __init__(self, places: int=10, luksusrom: int=2) -> None:
+    def __init__(self) -> None:
         super().__init__()
-        self.places = places
         self.plan = [[[etg, x, y] for x, y in room_plan.etg[etg].items()] for etg in room_plan.etg]
 
     def availible_room(self):
@@ -22,7 +21,7 @@ class Hotell(Price):
         return available_rooms
 
 class Customer(Price):
-    def __init__(self, full_name: str, guest_count: int, duration: int, d_code: int) -> None:
+    def __init__(self, full_name: str, guest_count: int, duration: int, d_code: str) -> None:
         super().__init__()
         self.name = full_name 
         self.guest_count = guest_count
@@ -52,3 +51,4 @@ class Customer(Price):
         total_price += self.room_count[1]*self.room_2_per_night
         total_price += self.room_count[2]*self.room_1_per_night
         total_price *= self.discount_code
+
