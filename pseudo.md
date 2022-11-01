@@ -23,11 +23,11 @@
 
 ## Klasse 2, kundeobjekt
 ### Inputs
-- [ ] Personalia [^2]
+- [x] Personalia [^2]
 - [ ] Rabattkode (10% eller 20%)
-- [ ] Antall rom
-- [ ] Antall personer
-- [ ] Antall netter
+- [x] Antall rom
+- [x] Antall personer
+- [x] Antall netter
 
 [^2]: Fullt navn, e-post, tlf, postnummer
 

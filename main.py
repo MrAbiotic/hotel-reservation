@@ -14,8 +14,8 @@ class Customer:
         self.guest_count = guest_count
         self.room_count = self.assign_room()
         self.duration = duration
-        self.discount = d_code
-        
+        self.discount_code = d_code
+
     def assign_room(self):
         room_of_4 = self.guest_count // 4
         self.guest_count %= 4 # Fjerner antallet fra 4-rom
@@ -23,6 +23,9 @@ class Customer:
         self.guest_count %= 2
         room_of_1 = self.guest_count
         return [room_of_4, room_of_2, room_of_1]
+
+    def discount(self):
+        pass
 
 hotell = Customer("HTHV", 9, 5, 8, 0)
 print(hotell.assign_room())
