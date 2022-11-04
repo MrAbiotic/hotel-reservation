@@ -72,7 +72,7 @@ class Customer(Price):
 
     def overview(self):
         for etg in range(len(plumbum.plan)):
-            print(f"{etg+1}:")
+            print(f"\n{etg+1}:")
             for room in plumbum.plan[etg]:
                 print(room, end=" ")
 
