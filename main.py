@@ -21,7 +21,7 @@ class Hotell(Price):
         return available_rooms
 
 class Customer(Price):
-    def __init__(self, full_name: str, epost: str, guest_count: int, duration: int, d_code: str) -> None:
+    def __init__(self, full_name: str, epost: str, guest_count: int, duration: int, d_code: str=None) -> None:
         super().__init__()
         self.name = full_name
         self.epost = epost
@@ -69,6 +69,12 @@ class Customer(Price):
         self.guest_count %= 2
         room_of_1 = self.guest_count
         return [room_of_4, room_of_2, room_of_1] # Vær oppmerksom på at endring av rekkefølge i denne vil forandre kode nedover
+
+    def overview(self):
+        for etg in range(len(plumbum.plan)):
+            print(f"{etg+1}:")
+            for room in plumbum.plan[etg]:
+                print(room, end=" ")
 
     @staticmethod
     def discount(d_code):
