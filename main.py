@@ -94,13 +94,13 @@ class Customer(Price):
 plumbum = Hotell()
 
 class Employee:
-    def __init__(self, full_name: str, email: str, position: str) -> None
+    def __init__(self, full_name: str, email: str, position: str) -> None:
         self.name      = full_name
         self.email     = email
         self.position  = position
         self.wage      = self.paygrade(position)    
 
-    def paygrade(position)
+    def paygrade(position):
         if position == "Waitress" or "Janitor" or "Logistikkarbeider":
             return 1
 
