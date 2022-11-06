@@ -11,10 +11,10 @@ etgdemo = {
         }
 """
 
-etg_quantity = 2
+etg_quantity = 4
 room_1 = [1 for x in range(20)]
 room_2 = [2 for x in range(20)]
-room_4 = [3 for x in range(20)]
+room_4 = [4 for x in range(20)]
 room_total = room_1 + room_2 + room_4
 rooms_per_etg = len(room_total) // etg_quantity
 
@@ -31,4 +31,5 @@ for etg_active in range(etg_quantity):
                 etg[etg_active+1].update({room+rooms_per_etg*etg_active: [0, room_total[room+rooms_per_etg*etg_active-1]]})
 
 
-print(etg)
+if __name__ == "main":
+    print(etg)
