@@ -31,4 +31,5 @@ for etg_active in range(etg_quantity):
                 etg[etg_active+1].update({room+rooms_per_etg*etg_active: [0, room_total[room+rooms_per_etg*etg_active-1]]})
 
 
-print(etg)
+if __name__ == "main":
+    print(etg)
