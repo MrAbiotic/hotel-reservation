@@ -11,7 +11,7 @@ etgdemo = {
         }
 """
 
-etg_quantity = 2
+etg_quantity = 4
 room_1 = [1 for x in range(20)]
 room_2 = [2 for x in range(20)]
 room_4 = [4 for x in range(40)]

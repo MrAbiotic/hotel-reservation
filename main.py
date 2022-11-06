@@ -25,7 +25,7 @@ class Hotell(Price):
         for i, etg in enumerate(self.plan):
             print(f"{'Etasje':->15} {i+1:-<10}")
             for j, room in enumerate(etg):
-                print(f"Rom {j+1}: {ledig(room[0])}")
+                print(f"Rom {i+1 if i else ''}{j+1}: {ledig(room[2][0])}")
 
 class Customer(Price):
     def __init__(self, full_name: str, epost: str, guest_count: int, duration: int, d_code: str=None) -> None:
@@ -60,15 +60,15 @@ class Customer(Price):
                 for room in range(len(plumbum.plan[etg])):
                     if rooms_to_assign_left[0] > 0:
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 4:
-                            plumbum.plan[etg][room][2][0] = self.epost
+                            plumbum.plan[etg][room][2][0] = (self.epost, self)
                             rooms_to_assign_left[0] -= 1
                     if rooms_to_assign_left[1] > 0:
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 2:
-                            plumbum.plan[etg][room][2][0] = self.epost
+                            plumbum.plan[etg][room][2][0] = (self.epost, self)
                             rooms_to_assign_left[1] -= 1
                     if rooms_to_assign_left[2] > 0:
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 2:
-                            plumbum.plan[etg][room][2][0] = self.epost
+                            plumbum.plan[etg][room][2][0] = (self.epost, self)
                             rooms_to_assign_left[2] -= 1
 
     def room_required(self):
