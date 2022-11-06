@@ -20,6 +20,13 @@ class Hotell(Price):
                     available_rooms.append(room)
         return available_rooms
 
+    def plan_oversikt(self):
+        ledig = lambda n: "Opptatt" if n != 0 else "Ledig"
+        for i, etg in enumerate(self.plan):
+            print(f"{'Etasje':->15} {i+1:-<10}")
+            for j, room in enumerate(etg):
+                print(f"Rom {j+1}: {ledig(room[0])}")
+
 class Customer(Price):
     def __init__(self, full_name: str, epost: str, guest_count: int, duration: int, d_code: str=None) -> None:
         super().__init__()
@@ -29,6 +36,8 @@ class Customer(Price):
         self.room_count = self.room_required() # [4-, 2-, 1-mannsrom]
         self.duration = duration
         self.discount_code = self.discount(d_code)
+
+        self.assign_room()
 
     def assign_room(self):
         if self.epost in plumbum.plan:
@@ -51,15 +60,15 @@ class Customer(Price):
                 for room in range(len(plumbum.plan[etg])):
                     if rooms_to_assign_left[0] > 0:
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 4:
-                            plumbum.plan[etg][room] = self.epost
+                            plumbum.plan[etg][room][2][0] = self.epost
                             rooms_to_assign_left[0] -= 1
                     if rooms_to_assign_left[1] > 0:
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 2:
-                            plumbum.plan[etg][room] = self.epost
+                            plumbum.plan[etg][room][2][0] = self.epost
                             rooms_to_assign_left[1] -= 1
                     if rooms_to_assign_left[2] > 0:
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 2:
-                            plumbum.plan[etg][room] = self.epost
+                            plumbum.plan[etg][room][2][0] = self.epost
                             rooms_to_assign_left[2] -= 1
 
     def room_required(self):
@@ -93,6 +102,7 @@ class Customer(Price):
 
 plumbum = Hotell()
 user = Customer("HT", "HT", 10, 20, "rabatt10")
+plumbum.plan_oversikt()
 
 class Employee:
     def __init__(self, full_name: str, email: str, position: str) -> None:
