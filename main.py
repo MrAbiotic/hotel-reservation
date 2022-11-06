@@ -25,7 +25,7 @@ class Hotell(Price):
         for i, etg in enumerate(self.plan):
             print(f"{'Etasje':->15} {i+1:-<10}")
             for j, room in enumerate(etg):
-                print(f"Rom {i+1 if i else ''}{j+1}: {ledig(room[2][0])}")
+                print(f"Rom {i+1 if i else ''}{j+1:0>2}: {ledig(room[2][0])}")
 
 class Customer(Price):
     def __init__(self, full_name: str, epost: str, guest_count: int, duration: int, d_code: str=None) -> None:
