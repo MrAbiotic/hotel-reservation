@@ -92,6 +92,7 @@ class Customer(Price):
         total_price *= self.discount_code
 
 plumbum = Hotell()
+user = Customer("HT", "HT", 10, 20, "rabatt10")
 
 class Employee:
     def __init__(self, full_name: str, email: str, position: str) -> None:
