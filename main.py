@@ -25,7 +25,7 @@ class Hotell(Price):
         for i, etg in enumerate(self.plan):
             print(f"\n{'Etasje':->16} {i+1:-<11}")
             for j, room in enumerate(etg):
-                print(f"Rom {i+1 if i else ''}{j+1:0>2}: {ledig(room[2][0]):<10}{'str: '+str(room[2][1]): >10}")
+                print(f"Rom {i+1}{j+1:0>2}: {ledig(room[2][0]):<10}{'str: '+str(room[2][1]): >10}")
 
 class Customer(Price):
     total_orders = 0
@@ -60,7 +60,7 @@ class Customer(Price):
                 if room[2][1] == 1 and room[2][0] == 0:
                     count_of_availible_1 += 1
         if count_of_availible_4 >= self.room_count[0] and count_of_availible_2 >= self.room_count[1] and count_of_availible_1 >= self.room_count[2]:
-            local_room_count = self.room_count
+            local_room_count = [x for x in self.room_count]
             for etg in range(len(plumbum.plan)):
                 for room in range(len(plumbum.plan[etg])):
                     if local_room_count[0] > 0:
@@ -72,17 +72,19 @@ class Customer(Price):
                             plumbum.plan[etg][room][2][0] = (self.epost, self.__dict__)
                             local_room_count[1] -= 1
                     if local_room_count[2] > 0:
-                        if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 2:
+                        if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 1:
                             plumbum.plan[etg][room][2][0] = (self.epost, self.__dict__)
                             local_room_count[2] -= 1
+        self.rooms()
 
+    def rooms(self):
         print("Dine rom:")
         for i, etg in enumerate(plumbum.plan):
             if self.epost in etg:
                 print(f"{'Etasje':->16} {i+1:-<11}")
             for j, room in enumerate(etg):
                 if room[2][0] != 0 and room[2][0][0] == self.epost:
-                    print(f"Rom {i+1 if i else ''}{j+1:0>2}, {'str: '+str(room[2][1]): >10}")
+                    print(f"Rom {i+1}{j+1:0>2}, {'str: '+str(room[2][1]): >10}")
         # return [count_of_availible_4, count_of_availible_2, count_of_availible_1]
 
     def room_required(self):
@@ -110,7 +112,7 @@ class Customer(Price):
         total_price += self.room_count[2]*self.room_1_per_night
         total_price *= abs(self.duration)
         total_price *= self.discount_code
-        print(f"Det koster totalt: {total_price}")
+        print(f"Det koster totalt: {total_price} for {self.duration} antall dager")
         # input("Betalingsmetode (Kort / Vipps / PayPal)")
         return total_price
 
@@ -126,6 +128,7 @@ class Employee:
             return 1
 
 
+alle_gjester = {}
 def bestill():
     navn = input("Navn: ")
     epost = input("E-post: ")
@@ -133,7 +136,7 @@ def bestill():
     dager = int(input("Antall dager: "))
     rabatt = input("Evt. rabattkode: ")
     betalingsmetode = input("Betalingsmetode (kort / vipps / paypal: ")
-    Customer(navn, epost, gjester, dager, rabatt)
+    alle_gjester[navn]=Customer(navn, epost, gjester, dager, rabatt)
 
 
 def guide():
@@ -159,6 +162,7 @@ bestill()
 guide()
 kommando()
 
+alle_gjester[<navn>].room()
 help(plumbum)
 plumbum.availible_rooms()
 plumbum.plan
@@ -169,5 +173,5 @@ room_plan.reset()
 
 guide()
 plumbum = Hotell()
-user = Customer(full_name="HT", epost="HT@", guest_count=1, duration=3, d_code="rabatt10")
+user = Customer(full_name="HT", epost="HT@", guest_count=3, duration=3, d_code="Rabatt10")
 plumbum.plan_oversikt()
