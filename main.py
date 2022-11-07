@@ -115,6 +115,7 @@ class Customer(Price):
             return 0.8
         else: 
             return 1
+            
 
     def price(self):
         total_price = self.room_count[0]*self.room_4_per_night
@@ -188,11 +189,11 @@ guide()
 kommando()
 checkOut()
 
-alle_gjester[<navn>].room()
+alle_gjester[<navn>].rooms()
 help(plumbum)
-plumbum.availible_rooms()
+plumbum.availible_room()
 plumbum.plan
-plumbum.planoversikt()
+plumbum.plan_oversikt()
 """)
 
 room_plan.reset()
