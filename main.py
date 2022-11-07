@@ -45,8 +45,13 @@ class Customer(Price):
         Customer.total_orders += 1
 
     def assign_room(self) -> list:
-        if self.epost in plumbum.plan:
-            return
+        for etg in plumbum.plan:
+            for room in etg:
+                if room[2][0] != 0 and room[2][0][0] == self.epost:
+                    print("Du kan ikke dobbeltbooke, desverre. Dette er din bestilling:" )
+                    print(self.rooms())
+                    return False
+
 
         count_of_availible_4 = 0
         count_of_availible_2 = 0
@@ -75,6 +80,11 @@ class Customer(Price):
                         if plumbum.plan[etg][room][2][0] == 0 and plumbum.plan[etg][room][2][1] == 1:
                             plumbum.plan[etg][room][2][0] = (self.epost, self.__dict__)
                             local_room_count[2] -= 1
+        else:
+            print("Ditt antall gjester samsvarer ikke med gjenværende kapasitet på hotellet, men på den positive siden kan de se bort ifra prisen ovenfor :)")
+            print("Her har du oversikten over ledige rom:")
+            plumbum.plan_oversikt()
+
         self.rooms()
 
     def rooms(self):
@@ -115,6 +125,7 @@ class Customer(Price):
         print(f"Det koster totalt: {total_price} for {self.duration} antall dager")
         # input("Betalingsmetode (Kort / Vipps / PayPal)")
         return total_price
+    
 
 class Employee:
     def __init__(self, full_name: str, email: str, position: str) -> None:
@@ -137,6 +148,20 @@ def bestill():
     rabatt = input("Evt. rabattkode: ")
     betalingsmetode = input("Betalingsmetode (kort / vipps / paypal: ")
     alle_gjester[navn]=Customer(navn, epost, gjester, dager, rabatt)
+
+def checkOut():
+    epost = input("På hvilken e-post ønsker du å avbestille?")
+    existing = False
+    for etg in plumbum.plan:
+        for room in etg:
+            if room[2][0] != 0 and room[2][0][0] == epost:
+                room[2][0] = 0
+                existing = True
+    
+    if existing == False:
+        print("Ingen rom er booket på denne e-posten")
+    else:
+        print("Avbooking suksessfull")
 
 
 def guide():
@@ -161,6 +186,7 @@ def kommando():
 bestill()
 guide()
 kommando()
+checkOut()
 
 alle_gjester[<navn>].room()
 help(plumbum)
@@ -173,5 +199,3 @@ room_plan.reset()
 
 guide()
 plumbum = Hotell()
-user = Customer(full_name="HT", epost="HT@", guest_count=3, duration=3, d_code="Rabatt10")
-plumbum.plan_oversikt()
