@@ -136,7 +136,7 @@ class Employee:
         self.wage      = self.paygrade(position)    
 
     def paygrade(position):
-        if position == "Waitress" or "Janitor" or "Logistikkarbeider":
+        if position == "Senior rådgivende takrennemontør" or "Assiterende Logistikkmedarbeider":
             return 1
 
 
@@ -149,6 +149,7 @@ def bestill():
     rabatt = input("Evt. rabattkode: ")
     betalingsmetode = input("Betalingsmetode (kort / vipps / paypal: ")
     alle_gjester[navn]=Customer(navn, epost, gjester, dager, rabatt)
+    input("Sriv guide() for å returnere til hovedmenyen")
 
 def checkOut():
     epost = input("På hvilken e-post ønsker du å avbestille?")
@@ -178,23 +179,60 @@ Eventuelt tast:
 
 Fyll deretter ut skjemaet.
 
+
+Dersom du ønsker å sjekke ut: 
+    checkOut()
+    
+
 OBS!
 Du kan bare ha en bestilling på hotellet.
 """)
 
 def kommando():
     print("""
-bestill()
-guide()
-kommando()
-checkOut()
 
-alle_gjester[<navn>].rooms()
-help(plumbum)
-plumbum.availible_room()
-plumbum.plan
-plumbum.plan_oversikt()
-""")
+Bestillinger m.m.:
+    guide()
+    bestill()
+    checkOut()
+
+Diverse:
+    kommando()
+    admin()
+
+Sjekk ditt rom:
+    alle_gjester[<navn>].rooms()
+
+Sjekk hva som er ledig:
+    plumbum.availible_room()
+    plumbum.plan_oversikt()
+
+    """)
+
+def admin():
+    password_check = input("Brukernavn:")
+    if password_check == "./plumbumadmin":
+        print("""
+
+For generell komandoliste:
+    kommando()
+
+Sjekk en enkelt gjest:
+    alle_gjester[<navn>].rooms()
+
+Sjekk rom plan:
+    plumbum.plan
+
+Teknisk hotell info:
+    help(plumbum)
+
+Månendens ansatt: 
+    Steinar Johannsen(vaktmester)
+
+        """)
+    else:
+        print("Du har ikke admin tilgang")
+        return kommando()
 
 room_plan.reset()
 

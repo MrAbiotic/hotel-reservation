@@ -24,9 +24,7 @@ room_dic = {x: [0, room_total[x-1]] for x in range(1, len(room_total)+1, 1)}
 for etg_active in range(etg_quantity):
     for room in range(1, rooms_per_etg+1):
         etg[etg_active+1].update({room+rooms_per_etg*etg_active: [0, room_total[room+rooms_per_etg*etg_active-1]]})
-        #print(etg_active)
         if etg_active+1 == etg_quantity and room == rooms_per_etg and len(room_total) % etg_quantity != 0:
-            print("test")
             for room in range(rooms_per_etg+1, rooms_per_etg + len(room_total)%etg_quantity+1):
                 etg[etg_active+1].update({room+rooms_per_etg*etg_active: [0, room_total[room+rooms_per_etg*etg_active-1]]})
 
@@ -44,8 +42,6 @@ def reset():
     for etg_active in range(etg_quantity):
         for room in range(1, rooms_per_etg+1):
             etg[etg_active+1].update({room+rooms_per_etg*etg_active: [0, room_total[room+rooms_per_etg*etg_active-1]]})
-            #print(etg_active)
             if etg_active+1 == etg_quantity and room == rooms_per_etg and len(room_total) % etg_quantity != 0:
-                print("test")
                 for room in range(rooms_per_etg+1, rooms_per_etg + len(room_total)%etg_quantity+1):
                     etg[etg_active+1].update({room+rooms_per_etg*etg_active: [0, room_total[room+rooms_per_etg*etg_active-1]]})
