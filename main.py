@@ -39,7 +39,6 @@ class Customer(Price):
         self.duration = duration
         self.discount_code = self.discount(d_code)
 
-        self.price()
         self.your_rooms = self.assign_room()
 
         Customer.total_orders += 1
@@ -48,7 +47,7 @@ class Customer(Price):
         for etg in plumbum.plan:
             for room in etg:
                 if room[2][0] != 0 and room[2][0][0] == self.epost:
-                    print("Du kan ikke dobbeltbooke, desverre. Dette er din bestilling:" )
+                    print("Du kan ikke dobbeltbooke, desverre. Du har allerede følgende bestilling knyttet til oppgitt e-post:" )
                     print(self.rooms())
                     return False
 
@@ -86,6 +85,7 @@ class Customer(Price):
             plumbum.plan_oversikt()
 
         self.rooms()
+        self.price()
 
     def rooms(self):
         print("Dine rom:")
@@ -149,7 +149,7 @@ def bestill():
     rabatt = input("Evt. rabattkode: ")
     betalingsmetode = input("Betalingsmetode (kort / vipps / paypal: ")
     alle_gjester[navn]=Customer(navn, epost, gjester, dager, rabatt)
-    input("Sriv guide() for å returnere til hovedmenyen")
+    print("Sriv guide() for å returnere til hovedmenyen")
 
 def checkOut():
     epost = input("På hvilken e-post ønsker du å avbestille?")
